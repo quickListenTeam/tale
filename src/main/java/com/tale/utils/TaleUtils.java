@@ -173,6 +173,11 @@ public class TaleUtils {
         if (TaleConst.BCONF.getBoolean(ENV_SUPPORT_163_MUSIC, true) && content.contains(MP3_PREFIX)) {
             content = content.replaceAll(MUSIC_REG_PATTERN, MUSIC_IFRAME);
         }
+    
+        // 支持音乐标签替换
+        if (TaleConst.BCONF.getBoolean(ENV_SUPPORT_AUDIO_MUSIC, true) && content.contains(AUDIO_PREFIX)) {
+            content = content.replaceAll(MUSIC_AUDIO_PATTERN, MUSIC_AUDIO_TAG);
+        }
         // 支持gist代码输出
         if (TaleConst.BCONF.getBoolean(ENV_SUPPORT_GIST, true) && content.contains(GIST_PREFIX_URL)) {
             content = content.replaceAll(GIST_REG_PATTERN, GIST_REPLATE_PATTERN);
